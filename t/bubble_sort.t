@@ -11,6 +11,12 @@ sub init : Test(1) {
     new_ok 'BubbleSorter';
 }
 
+sub inherit : Test(2) {
+    my $sorter = BubbleSorter->new;
+    isa_ok($sorter, 'BubbleSorter');
+    isa_ok($sorter, 'Sorter');
+}
+
 sub values : Tests {
     my $sorter = BubbleSorter->new;
     is_deeply [$sorter->get_values], [];
